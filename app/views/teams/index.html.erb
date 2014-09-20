@@ -1,0 +1,9 @@
+<h3>Teams:</h3>
+<% @teams.each do |team| %>
+    <div>
+      <%= team.name %>:
+      <% team.members.each do |member| %>
+        <p><%= member.name %></p>
+      <% end %>
+    </div>
+<% end %>
