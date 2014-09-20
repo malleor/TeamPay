@@ -1,9 +1,17 @@
 <h3>Teams:</h3>
-<% @teams.each do |team| %>
+<%
+  @teams.each do |team|
+    leader = team.leader
+%>
     <div>
-      <%= team.name %>:
+      <h4><%= team.name %>:</h4>
       <% team.members.each do |member| %>
-        <p><%= member.name %></p>
+        <p>
+          <%= member.name %>
+          <% if leader == member %>
+            <small>(leader)</small>
+          <% end %>
+        </p>
       <% end %>
     </div>
 <% end %>
