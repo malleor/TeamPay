@@ -1,3 +1,9 @@
 <h1><%= @voting.team.name %> <small>- Voting #<%= @voting.id() %></small></h1>
 
 <p>Total: <%= @voting.total %>PLN</p>
+
+<ul>
+  <% @voting.voting_entries.each do |entry| %>
+    <li><%= User.where(id: entry.member_id).first.name %>: <%= entry.amount %>PLN</li>
+  <% end %>
+</ul>
