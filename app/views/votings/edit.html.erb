@@ -1,3 +1,52 @@
 <%= form_for :voting, url: voting_path(@voting), method: :patch do |f| %>
-    
+
+<style>
+    .bonus-value {
+        margin-left: 10px;
+        width: 30px;
+        display: inline-block;
+    }
+</style>
+
+<script>
+    var max_funds = <%= @voting.total %>,
+        init_funds = max_funds / <%= @voting.voting_entries.length %>;
+</script>
+
+<div class="container">
+  <div class="row">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>#</th>
+        <th>Imię i nazwisko</th>
+        <th>Premia</th>
+      </tr>
+
+      <%
+         num = 0
+         @voting.voting_entries.each do |entry|
+            member = User.where(id: entry.member_id).first
+      %>
+      <tr>
+        <td><%= num = num + 1 %></td>
+        <td><%= member.name %></td>
+        <td>
+          <input class="bonus-slider" id="bonus-slider-<%= member.id() %>" type="text" data-slider-min="0" data-slider-max="<%= @voting.total %>" data-slider-step="10" data-slider-value="<%= entry.amount %>"/>
+          <input type="text" id="bonus-value-<%= member.id() %>" class="bonus-value" name="amount[<%= member.id() %>]" size="5" value="<%= entry.amount %>" />
+          PLN
+        </td>
+      </tr>
+      <% end %>
+    </table>
+
+  </div>
+  <div class="row">
+    <p class="text-center">
+      <%= f.submit "Submit", class: "btn btn-large btn-info" %>
+    </p>
+  </div>
+</div>
+
 <% end %>
+
+<%= javascript_include_tag "logic" %>
