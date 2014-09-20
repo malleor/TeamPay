@@ -1,3 +1,4 @@
+
 <%= form_for :voting, url: voting_path(@voting), method: :patch do |f| %>
 
 <style>
@@ -14,12 +15,20 @@
 </script>
 
 <div class="container">
+
+  <div class="row" style="margin-bottom: 3em;">
+    <div class="col-lg-6 col-lg-offset-3">
+      <h1>Share the bonus</h1>
+    </div>
+  </div>
+
   <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
     <table class="table table-striped table-hover">
       <tr>
         <th>#</th>
-        <th>Imię i nazwisko</th>
-        <th>Premia</th>
+        <th>Name</th>
+        <th>Bonus</th>
       </tr>
 
       <%
@@ -37,8 +46,15 @@
         </td>
       </tr>
       <% end %>
+
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td style="padding-left: 200px">&Sigma;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @voting.total %> PLN</td>
+      </tr>
     </table>
 
+    </div>
   </div>
   <div class="row">
     <p class="text-center">
