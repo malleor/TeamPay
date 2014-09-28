@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+//= require bootstrap
+//= require bootstrap-slider
+//= require bootstrap-theme
+ *= require_self
+ */
+
+
+$faded-color: #999;
+$back-color: #fdfdfd;
+
+$navbar-height: 80px;
+
+
+@font-face {
+  font-family: 'permanent_markerregular';
+  src: url('<%= font_url('PermanentMarker-webfont.eot') %>');
+  src: url('<%= font_url('PermanentMarker-webfont.eot?#iefix') %>') format('embedded-opentype'),
+       url('<%= font_url('PermanentMarker-webfont.woff') %>') format('woff'),
+       url('<%= font_url('PermanentMarker-webfont.ttf') %>') format('truetype'),
+       url('<%= font_url('PermanentMarker-webfont.svg#permanent_markerregular') %>') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+body {
+    padding-top: 100px;
+    background-color: $back-color;
+}
+
+.navbar-cell {
+    background-color: $back-color;
+    border-bottom: 1px solid lighten($faded-color, 30%);
+}
+
+#brand {
+    color: $faded-color;
+    font-size: $navbar-height/3;
+    line-height: $navbar-height/3;
+    height: $navbar-height;
+    padding: $navbar-height/3 0;
+
+    font-family: 'permanent_markerregular';
+}
