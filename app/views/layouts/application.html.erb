@@ -22,7 +22,26 @@
   </div>
 </div>
 
-<%= yield %>
+<!-- CONTENT -->
+<div class="container">
+
+  <!-- HEADLINE -->
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 headline">
+      <h1>
+        <%= yield :headline %>
+      </h1>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <%= yield %>
+    </div>
+  </div>
+
+</div>
 
 </body>
 </html>

@@ -2,52 +2,35 @@
    team = Team.first
 %>
 
-<div class="container">
-  <div class="row" style="margin-bottom: 3em;">
-    <div class="col-lg-6 col-lg-offset-3">
-      <h1>Give the team a bonus</h1>
-    </div>
-  </div>
+<% content_for :headline do %>
+    Award the team
+<% end %>
 
+<div class="row">
+  <div class="col-lg-12">
+    <h4><%= team.name %></h4>
 
-  <div class="row">
-    <div class="col-lg-3 col-lg-offset-3">
-        <h4><%= team.name %></h4>
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+      </tr>
 
-        <table class="table table-striped table-hover">
+      <%
+         num = 0
+         team.members.each do |member|
+      %>
           <tr>
-            <th>#</th>
-            <th>Name</th>
+            <td><%= num = num + 1 %></td>
+            <td><%= member.name %></td>
           </tr>
-
-          <%
-             num = 0
-             team.members.each do |member|
-          %>
-              <tr>
-                <td><%= num = num + 1 %></td>
-                <td><%= member.name %></td>
-              </tr>
-          <% end %>
-        </table>
-    </div>
-    <div class="col-md-3" style="padding-top: 5em;">
-      <div class="text-left">
-        <input type="input" style="font-size: 1.5em; width: 4.5em;" /> PLN<br /><br />
-        <a href="#" class="btn btn-large btn-info" id="set-bonus">Ustaw</a>
-      </div>
-    </div>
+      <% end %>
+    </table>
   </div>
-</div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <p class="text-center" style="font-size:20px; font-weight:bold;">Kasa przyznana. Bierzcie i dzielcie (:</p>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-default" href="">Donate</a>
-      </div>
+  <div class="col-lg-12" style="padding-top: 5em;">
+    <div class="text-left">
+      <input type="input" style="font-size: 1.5em; width: 4.5em;"/> PLN<br/><br/>
+      <a href="#" class="btn btn-large btn-info" id="set-bonus">Ustaw</a>
     </div>
   </div>
 </div>
