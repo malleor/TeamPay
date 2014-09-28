@@ -6,6 +6,7 @@
 
 .team-name {
   border-bottom: 1px solid $faded-color;
+  color: $faded-color;
 }
 
 .team-list {
@@ -22,4 +23,28 @@
   width: 4.5em;
   padding: 5px;
   font-family: 'playtimewithhottoddiesRg';
+}
+
+#sliders-form {
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  .row {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  .member-name {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .slider {
+    width: 100% !important;
+  }
+
+  .bonus-value {
+    width: 40px;
+    display: inline-block;
+  }
 }
